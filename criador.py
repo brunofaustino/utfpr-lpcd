@@ -10,7 +10,7 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 class DataBase():
     
-    def __init__(self, dbname='postgres', user='postgres', password='admin', statement_tables=None):
+    def __init__(self, dbname='postgres', user='postgres', password='Postgres2019!', statement_tables=None):
         self.user = user
         self.password = password
         self.statement_tables = statement_tables
@@ -18,7 +18,7 @@ class DataBase():
         
     def set_connection(self, dbname='postgres'):
         #self.conn = psycopg2.connect("dbname={} user={} password={}".format(dbname, self.user, self.password))
-        self.conn = psycopg2.connect("user={} password={}".format(self.user, self.password))
+        self.conn = psycopg2.connect("user={} password={} port=15432".format(self.user, self.password))
         self.conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         self.cursor = self.conn.cursor()
         
