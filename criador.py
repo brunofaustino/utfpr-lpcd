@@ -8,17 +8,23 @@ Created on Wed Jun 23 13:45:05 2021
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
+DATABASE = 'grupo_z'
+USER = 'postgres'
+PASSWORD = 'admin'
+PORT = '5432'
+
 class DataBase():
     
-    def __init__(self, dbname='postgres', user='postgres', password='Postgres2019!', statement_tables=None):
+    def __init__(self, dbname='postgres', user='postgres', password='Postgres2019!', statement_tables=None, port='5432'):
         self.user = user
         self.password = password
         self.statement_tables = statement_tables
         self.dbname = dbname
+        self.port = port
         
     def set_connection(self, dbname='postgres'):
         #self.conn = psycopg2.connect("dbname={} user={} password={}".format(dbname, self.user, self.password))
-        self.conn = psycopg2.connect("user={} password={} port=15432".format(self.user, self.password))
+        self.conn = psycopg2.connect("user={} password={} port={}".format(self.user, self.password, self.port))
         self.conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         self.cursor = self.conn.cursor()
         
@@ -81,6 +87,5 @@ CREATE_LOCALIZACAO = {
 
 statement_tables = [CREATE_CASOS_COVID, CREATE_LOCALIZACAO]
 
-DATABASE = 'grupo_z'
-dataBase = DataBase(dbname=DATABASE)
+dataBase = DataBase(dbname=DATABASE, user=USER, password=PASSWORD, port=PORT)
 dataBase.create_tables(statement_tables)
