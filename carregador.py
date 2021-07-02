@@ -4,9 +4,9 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 DATABASE = 'grupo_z'
 USER = 'postgres'
-PASSWORD = 'admin'
-PORT = '5432'
-FILE = 'C:\\Users\\bfaam\\Downloads\\utfpr-lpcd\\data\\covid19_casos_brasil.csv'
+PASSWORD = 'Postgres2019!'
+PORT = '15432'
+FILE = 'C:\\Users\\Nicolas\\source\\repos\\utfpr-lpcd\\data\\covid19_casos_brasil.csv'
 
 class Carregador:
 
@@ -41,7 +41,7 @@ class Carregador:
 
 df = pd.read_csv(FILE)
 
-dfTrab = df[df['city'].isin(['Curitiba', 'Rio', 'Fortaleza', 'São Luiz', 'Recife'])]
+dfTrab = df[df['city'].isin(['Curitiba', 'Rio de Janeiro', 'Fortaleza', 'Maceió', 'Recife'])]
 dfTrab['idcasos_covid'] = dfTrab.index
 dfTrab['casos_covid_idcasos_covid'] = dfTrab['idcasos_covid']
 
