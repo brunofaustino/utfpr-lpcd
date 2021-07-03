@@ -4,9 +4,9 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 DATABASE = 'grupo_z'
 USER = 'postgres'
-PASSWORD = 'Postgres2019!'
-PORT = '15432'
-FILE = 'C:\\Users\\Nicolas\\source\\repos\\utfpr-lpcd\\data\\covid19_casos_brasil.csv'
+PASSWORD = 'admin'
+PORT = '5432'
+FILE = 'C:\\Users\\bfaam\\Downloads\\utfpr-lpcd\\data\\covid19_casos_brasil.csv'
 
 class Carregador:
 
